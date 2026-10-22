@@ -1,0 +1,2 @@
+# Bangladesh-Currency-Guide-The-Ultimate-Digital-Catalog-of-Bangladeshi-Banknotes-Coins
+Developed a web-based catalog of Bangladeshi banknotes and coins, covering currency history, security features, specifications, and release details. Features high-resolution images, multilingual support, an interactive interface, and a currency converter. Built with HTML, CSS, and JavaScript using reliable financial and government sources.
