@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Currency Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating animation elements -->
+    <div class="floating-elements">
+        <div class="floating-element element-1"></div>
+        <div class="floating-element element-2"></div>
+        <div class="floating-element element-3"></div>
+        <div class="floating-element element-4"></div>
+    </div>
+
+    <!-- Header with reduced size image -->
+    <header>
+        <div class="header-image">
+            <div class="image-overlay"></div>
+            <div class="header-content">
+                <h1 id="site-title">Bangladesh Currency Guide</h1>
+                <p id="site-description">Discover the complete collection of Bangladeshi banknotes and coins with historical details, design specifications, and security features.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Utility buttons moved below header -->
+    <div class="utility-container">
+        <div class="utility-buttons">
+            <div class="language-selector">
+                <button class="utility-btn" id="language-btn" title="Select Language">
+                    <span id="current-language">EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="language-menu" id="language-menu">
+                    <div class="language-option" data-lang="en">English</div>
+                    <div class="language-option" data-lang="bn">বাংলা</div>
+                    <div class="language-option" data-lang="es">Español</div>
+                    <div class="language-option" data-lang="fr">Français</div>
+                    <div class="language-option" data-lang="ar">العربية</div>
+                    <div class="language-option" data-lang="zh">中文</div>
+                    <div class="language-option" data-lang="hi">हिन्दी</div>
+                    <div class="language-option" data-lang="ja">日本語</div>
+                </div>
+            </div>
+            <button class="utility-btn" id="converter-btn" title="Currency Converter"><i class="fas fa-money-bill-transfer"></i></button>
+            <button class="utility-btn" id="developer-btn" title="About Developer"><i class="fas fa-user-tie"></i></button>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <main>
+        <!-- Banknotes Section with container -->
+        <div class="currency-container">
+            <section class="currency-section">
+                <div class="section-title">
+                    <div class="title-decoration">
+                        <h2><i class="fas fa-money-bill-wave"></i> <span id="banknotes-title">Banknotes</span></h2>
+                    </div>
+                </div>
+                <div class="currency-grid" id="banknotes-grid">
+                    <!-- Banknotes will be added dynamically with JavaScript -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Coins Section with container -->
+        <div class="currency-container">
+            <section class="currency-section">
+                <div class="section-title">
+                    <div class="title-decoration">
+                        <h2><i class="fas fa-coins"></i> <span id="coins-title">Coins</span></h2>
+                    </div>
+                </div>
+                <div class="currency-grid" id="coins-grid">
+                    <!-- Coins will be added dynamically with JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p id="copyright">Copyright © 2025 - <b>Md. Rasel Hossain</b>. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Banknote Modal -->
+    <div class="modal" id="banknote-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="banknote-modal-title">1 Taka - One Taka</h3>
+                <button class="close-btn" id="close-banknote-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-row">
+                    <div class="modal-img">
+                        <div class="image-frame">
+                            <img id="banknote-modal-img" src="" alt="Banknote">
+                        </div>
+                    </div>
+                    <div class="modal-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <p><strong id="modal-value">Value:</strong> <span id="banknote-value">1 Taka</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <p><strong id="modal-issued">First Issued:</strong> <span id="banknote-issued">1973</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-landmark"></i>
+                            <p><strong id="modal-authority">Issuing Authority:</strong> <span id="banknote-authority">Bangladesh Bank</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <p><strong id="modal-design">Design:</strong> <span id="banknote-design">Front: National Martyrs' Monument; Back: Shapla (Water Lily)</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <p><strong id="modal-security">Security Features:</strong> <span id="banknote-security">Watermark, Security thread, Microprinting</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-palette"></i>
+                            <p><strong id="modal-color">Color:</strong> <span id="banknote-color">Blue and white</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <p><strong id="modal-size">Size:</strong> <span id="banknote-size">100 × 60 mm</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coin Modal -->
+    <div class="modal" id="coin-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="coin-modal-title">1 Poisha - One Poisha</h3>
+                <button class="close-btn" id="close-coin-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-row">
+                    <div class="modal-img">
+                        <div class="image-frame">
+                            <img id="coin-modal-img" src="" alt="Coin">
+                        </div>
+                    </div>
+                    <div class="modal-details">
+                        <div class="detail-item">
+                            <i class="fas fa-coins"></i>
+                            <p><strong id="modal-coin-value">Value:</strong> <span id="coin-value">1 Poisha</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <p><strong id="modal-coin-issued">First Issued:</strong> <span id="coin-issued">1973</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-landmark"></i>
+                            <p><strong id="modal-coin-authority">Issuing Authority:</strong> <span id="coin-authority">Bangladesh Bank</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <p><strong id="modal-coin-design">Design:</strong> <span id="coin-design">Front: National Emblem; Back: Denomination</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-cube"></i>
+                            <p><strong id="modal-coin-material">Material:</strong> <span id="coin-material">Aluminum</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-weight-hanging"></i>
+                            <p><strong id="modal-coin-weight">Weight:</strong> <span id="coin-weight">1.3 g</span></p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-circle"></i>
+                            <p><strong id="modal-coin-diameter">Diameter:</strong> <span id="coin-diameter">20 mm</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Currency Converter Modal -->
+    <div class="modal" id="converter-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="converter-modal-title">Currency Converter</h3>
+                <button class="close-btn" id="close-converter-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="converter-container">
+                    <div class="converter-input">
+                        <select id="from-currency">
+                            <option value="BDT">Bangladeshi Taka (BDT)</option>
+                            <option value="USD">US Dollar (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="GBP">British Pound (GBP)</option>
+                            <option value="INR">Indian Rupee (INR)</option>
+                            <option value="CNY">Chinese Yuan (CNY)</option>
+                            <option value="JPY">Japanese Yen (JPY)</option>
+                            <option value="SAR">Saudi Riyal (SAR)</option>
+                        </select>
+                        <input type="number" id="from-amount" value="1" min="1">
+                    </div>
+                    <button class="converter-swap" id="swap-currencies"><i class="fas fa-exchange-alt"></i></button>
+                    <div class="converter-input">
+                        <select id="to-currency">
+                            <option value="USD">US Dollar (USD)</option>
+                            <option value="BDT">Bangladeshi Taka (BDT)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="GBP">British Pound (GBP)</option>
+                            <option value="INR">Indian Rupee (INR)</option>
+                            <option value="CNY">Chinese Yuan (CNY)</option>
+                            <option value="JPY">Japanese Yen (JPY)</option>
+                            <option value="SAR">Saudi Riyal (SAR)</option>
+                        </select>
+                        <input type="number" id="to-amount" readonly>
+                    </div>
+                </div>
+                <div class="converter-result" id="conversion-result">
+                    1 BDT = 0.0095 USD
+                </div>
+                <div class="converter-info">
+                    Exchange rates are approximate and based on current market data.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Developer Modal -->
+    <div class="modal" id="developer-modal">
+        <div class="modal-content developer-content">
+            <div class="modal-header">
+                <h3 id="developer-modal-title">About the Developer</h3>
+                <button class="close-btn" id="close-developer-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="developer-info">
+                    <div class="info-section">
+                        <div class="info-content">
+                            <div class="info-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h4 id="dev-name-title">Name:</h4>
+                            <div class="info-box">
+                                <p>Md. Rasel Hossain</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-content">
+                            <div class="info-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <h4 id="dev-info-title">Personal Information:</h4>
+                            <div class="info-box">
+                                <p>Student of the Department of Software Engineering</p>
+                                <p>Daffodil International University</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-content">
+                            <div class="info-icon">
+                                <i class="fas fa-address-card"></i>
+                            </div>
+                            <h4 id="dev-contact-title">Contact Information:</h4>
+                            <div class="info-box">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+880 1834-710071</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>mdraselt54@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-content">
+                            <div class="info-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <h4 id="dev-social-title">Social Media:</h4>
+                            <div class="info-box">
+                                <div class="social-links">
+                                    <a href="https://www.facebook.com/mdraselhossain29" class="social-link facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.linkedin.com/in/mdraselhossain29" class="social-link linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://github.com/mdraselhossain29" class="social-link github" target="_blank"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.mdraselhossain.xyz" class="social-link globe" target="_blank"><i class="fas fa-globe"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
